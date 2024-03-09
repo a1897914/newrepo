@@ -1,27 +1,27 @@
 #include "Human.h"
 #include <iostream>
 
-Human::Human(const std::string& playerName) : Player(playerName) {}
+Human::Human(const std::string& name) : Player(name), playerName(name) {} 
 
 Move Human::makeMove() {
     int choice;
-    std::cout << name << ", your turn! Choose a move:\n";
+    std::cout << playerName << ", your turn! Choose a move:\n";
     std::cout << "1. Monkey\n2. Robot\n3. Pirate\n4. Ninja\n5. Zombie\n";
     std::cin >> choice;
 
     switch (choice) {
         case 1:
-            return Move::MONKEY;
+            return MoveType::MONKEY;
         case 2:
-            return Move::ROBOT;
+            return MoveType::ROBOT;
         case 3:
-            return Move::PIRATE;
+            return MoveType::PIRATE;
         case 4:
-            return Move::NINJA;
+            return MoveType::NINJA;
         case 5:
-            return Move::ZOMBIE;
+            return MoveType::ZOMBIE;
         default:
             std::cerr << "Invalid choice! Defaulting to Monkey.\n";
-            return Move::MONKEY;
+            return MoveType::MONKEY;
     }
 }
