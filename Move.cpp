@@ -1,33 +1,20 @@
 #include "Move.h"
 
-std::string Rock::getName() {
-    return "Rock";
-}
+Move::Move(MoveType type) : moveType(type) {}
 
-std::string Paper::getName() {
-    return "Paper";
-}
-
-std::string Scissors::getName() {
-    return "Scissors";
-}
-
-std::string Robot::getName() {
-    return "Robot";
-}
-
-std::string Monkey::getName() {
-    return "Monkey";
-}
-
-std::string Pirate::getName() {
-    return "Pirate";
-}
-
-std::string Ninja::getName() {
-    return "Ninja";
-}
-
-std::string Zombie::getName() {
-    return "Zombie";
+std::string Move::getName() const {
+    switch (moveType) {
+        case MoveType::MONKEY:
+            return "Monkey";
+        case MoveType::ROBOT:
+            return "Robot";
+        case MoveType::PIRATE:
+            return "Pirate";
+        case MoveType::NINJA:
+            return "Ninja";
+        case MoveType::ZOMBIE:
+            return "Zombie";
+        default:
+            return "Unknown";
+    }
 }
