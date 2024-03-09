@@ -1,4 +1,3 @@
-// Computer.h
 #ifndef COMPUTER_H
 #define COMPUTER_H
 
@@ -6,9 +5,8 @@
 
 class Computer : public Player {
 public:
-    Computer();
-    Move* makeMove() override;
-    std::string getName() override;
+    Computer(const std::string& playerName);
+    Move makeMove();
 };
 
 #endif // COMPUTER_H

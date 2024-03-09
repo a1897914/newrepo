@@ -5,9 +5,8 @@
 
 class Human : public Player {
 public:
-    Human();
-    Move* makeMove() override;
-    std::string getName() override;
+    Human(const std::string& playerName);
+    Move makeMove();
 };
 
-#endif
+#endif // HUMAN_H

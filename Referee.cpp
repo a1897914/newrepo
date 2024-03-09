@@ -1,31 +1,28 @@
 #include "Referee.h"
-#include "Move.h"
+#include <iostream>
 
-Referee::Referee() {}
+std::string Referee::determineWinner(Player* player1, Player* player2) {
+    Move move1 = player1->makeMove();
+    Move move2 = player2->makeMove();
 
-Player* Referee::refGame(Player* player1, Player* player2) {
-    Move* move1 = player1->makeMove();
-    Move* move2 = player2->makeMove();
-
-    std::string name1 = move1->getName();
-    std::string name2 = move2->getName();
-
-    if (name1 == name2) {
-        return nullptr;
+    if (move1 == move2) {
+        return "It's a tie!";
+    } else if (beats(move1, move2)) {
+        return player1->getName() + " wins!";
     } else {
-        if ((name1 == "Rock" && (name2 == "Scissors" || name2 == "Monkey" || name2 == "Zombie")) ||
-            (name1 == "Paper" && (name2 == "Rock" || name2 == "Pirate")) ||
-            (name1 == "Scissors" && (name2 == "Paper" || name2 == "Robot")) ||
-            (name1 == "Monkey" && (name2 == "Robot" || name2 == "Ninja")) ||
-            (name1 == "Robot" && (name2 == "Pirate" || name2 == "Zombie")) ||
-            (name1 == "Pirate" && (name2 == "Ninja" || name2 == "Zombie")) ||
-            (name1 == "Ninja" && (name2 == "Zombie" || name2 == "Monkey")) ||
-            (name1 == "Zombie" && (name2 == "Monkey" || name2 == "Paper"))) {
-            delete move2; 
-            return player1;
-        } else {
-            delete move1; 
-            return player2;
-        }
+        return player2->getName() + " wins!";
     }
+}
+
+bool Referee::beats(Move move1, Move move2) {
+    return (move1 == Move::MONKEY && move2 == Move::ZOMBIE) ||
+           (move1 == Move::ZOMBIE && move2 == Move::PIRATE) ||
+           (move1 == Move::PIRATE && move2 == Move::NINJA) ||
+           (move1 == Move::NINJA && move2 == Move::ROBOT) ||
+           (move1 == Move::ROBOT && move2 == Move::MONKEY) ||
+           (move1 == Move::MONKEY && move2 == Move::NINJA) ||
+           (move1 == Move::NINJA && move2 == Move::ZOMBIE) ||
+           (move1 == Move::ZOMBIE && move2 == Move::ROBOT) ||
+           (move1 == Move::ROBOT && move2 == Move::PIRATE) ||
+           (move1 == Move::PIRATE && move2 == Move::MONKEY);
 }

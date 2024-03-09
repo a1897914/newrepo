@@ -5,8 +5,8 @@
 
 class Referee {
 public:
-    Referee();
-    Player* refGame(Player* player1, Player* player2);
+    static std::string determineWinner(Player* player1, Player* player2);
+    static bool beats(Move move1, Move move2);
 };
 
-#endif 
+#endif // REFEREE_H

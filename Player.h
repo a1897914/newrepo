@@ -1,26 +1,17 @@
-#pragma once
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <string>
 #include "Move.h"
+#include <string>
 
 class Player {
+protected:
+    std::string name;
+
 public:
-    virtual Move* makeMove() = 0;
-    virtual std::string getName() = 0;
+    Player(const std::string& playerName);
+    virtual Move makeMove() = 0;
+    std::string getName() const;
 };
 
-class Human : public Player {
-public:
-    Move* makeMove() override;
-    std::string getName() override;
-};
-
-class Computer : public Player {
-public:
-    Move* makeMove() override;
-    std::string getName() override;
-};
-
-#endif
+#endif // PLAYER_H
