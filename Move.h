@@ -1,23 +1,21 @@
 #ifndef MOVE_H
 #define MOVE_H
 
-#include <string>
+#include <iostream>
+#include <vector>
+using namespace std;
 
-enum class MoveType {
-    MONKEY,
-    ROBOT,
-    PIRATE,
-    NINJA,
-    ZOMBIE
-};
-
-class Move {
-private:
-    MoveType moveType;
-
+class Move{
 public:
-    Move(MoveType type);
-    std::string getName() const;
-};
+Move(string n);
+string getName();
+vector <string> getWinner();
+vector <string> getLoser();
+private:
+string name;
 
-#endif // MOVE_H
+vector <string> Winner;
+
+vector <string> Loser;
+};
+#endif

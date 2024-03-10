@@ -1,7 +1,12 @@
 #include "Player.h"
 
-Player::Player(const std::string& playerName) : name(playerName) {}
+Player::Player(){
+}
 
-std::string Player::getName() const {
-    return name;
+Player::Player(string n){
+name = n;
+}
+
+string Player::getName(){
+return name;
 }

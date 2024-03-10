@@ -2,16 +2,18 @@
 #define PLAYER_H
 
 #include "Move.h"
-#include <string>
 
-class Player {
-protected:
-    std::string name;
+using namespace std;
 
+class Player{
 public:
-    Player(const std::string& playerName);
-    virtual Move makeMove() = 0;
-    std::string getName() const;
+Player();
+Player(string n);
+virtual Move* makeMove()=0;
+string getName();
+
+protected:
+string name;
 };
 
-#endif // PLAYER_H
+#endif

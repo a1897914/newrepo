@@ -1,16 +1,12 @@
 #ifndef HUMAN_H
 #define HUMAN_H
-
 #include "Player.h"
-#include <string>
 
-class Human : public Player {
-private:
-    std::string playerName;
-
+class Human : public Player{
 public:
-    Human(const std::string& name);
-    Move makeMove();
+Human();
+Human(string n);
+virtual Move* makeMove();
 };
 
-#endif // HUMAN_H
+#endif

@@ -1,28 +1,24 @@
-#include "Referee.h"
 #include <iostream>
+#include "Referee.h"
 
-std::string Referee::determineWinner(Player* player1, Player* player2) {
-    Move move1 = player1->makeMove();
-    Move move2 = player2->makeMove();
 
-    if (move1 == move2) {
-        return "It's a tie!";
-    } else if (beats(move1, move2)) {
-        return player1->getName() + " wins!";
-    } else {
-        return player2->getName() + " wins!";
-    }
+Referee::Referee(){
+}
+Player* Referee::refGame(Player* player1, Player* player2){
+Move* p1_move = player1->makeMove();
+Move* p2_move = player2->makeMove();
+
+for(int i=0; i < p2_move -> getWinner().size(); i++ ){
+if(p1_move -> getName() == p2_move -> getWinner().at(i)){
+return player2;
+} else
+{
+    return player1;
 }
 
-bool Referee::beats(Move move1, Move move2) {
-    return (move1 == Move::MONKEY && move2 == Move::ZOMBIE) ||
-           (move1 == Move::ZOMBIE && move2 == Move::PIRATE) ||
-           (move1 == Move::PIRATE && move2 == Move::NINJA) ||
-           (move1 == Move::NINJA && move2 == Move::ROBOT) ||
-           (move1 == Move::ROBOT && move2 == Move::MONKEY) ||
-           (move1 == Move::MONKEY && move2 == Move::NINJA) ||
-           (move1 == Move::NINJA && move2 == Move::ZOMBIE) ||
-           (move1 == Move::ZOMBIE && move2 == Move::ROBOT) ||
-           (move1 == Move::ROBOT && move2 == Move::PIRATE) ||
-           (move1 == Move::PIRATE && move2 == Move::MONKEY);
+}
+
+
+
+return nullptr;
 }
