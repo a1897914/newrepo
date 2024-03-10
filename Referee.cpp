@@ -11,14 +11,14 @@ Move* p2_move = player2->makeMove();
 for(int i=0; i < p2_move -> getWinner().size(); i++ ){
 if(p1_move -> getName() == p2_move -> getWinner().at(i)){
 return player2;
-} else
-{
-    return player1;
+}
 }
 
+for(int i=0; i < p2_move -> getLoser().size(); i++ ){
+if(p1_move -> getName() == p2_move -> getLoser().at(i)){
+return player1;
 }
-
-
+}
 
 return nullptr;
 }
