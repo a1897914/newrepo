@@ -55,5 +55,5 @@ return Winner;
 }
 
 vector <string> Move::getLoser(){
-return Winner;
+return Loser;
 }
